@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Validation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <form id="form" class="card" novalidate>
+        <h1>Create account</h1>
+        <p class="subtitle">Join us today and get started</p>
+
+        <!-- Email Input -->
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input id="email" type="text" name="email" placeholder="e.g. john@email.com" />
+            <p class="error" id="emailError"></p>
+        </div>
+
+        <!-- Password Input with Toggle -->
+        <div class="input-group">
+            <label for="password">Password</label>
+            <div class="password-wrapper">
+                <input id="password" name="password" type="password" placeholder="Create a password" />
+                <button type="button" class="toggle-password" id="togglePassword"
+                    aria-label="Toggle password visibility">
+                    <svg class="icon-eye" width="20" height="20">
+                        <use href="icons.svg#icon-eye"></use>
+                    </svg>
+                    <svg class="icon-eye-slash" width="20" height="20" style="display: none;">
+                        <use href="icons.svg#icon-eye-slash"></use>
+                    </svg>
+                </button>
+            </div>
+            <p class="error" id="passwordError"></p>
+
+            <div class="requirements">
+                <p class="req" id="r1">At least 8 characters</p>
+                <p class="req" id="r2">At least 1 uppercase letter</p>
+                <p class="req" id="r3">At least 1 lowercase letter</p>
+                <p class="req" id="r4">At least 1 number</p>
+            </div>
+        </div>
+
+        <!-- Confirm Password Input with Toggle -->
+        <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-wrapper">
+                <input id="confirmPassword" name="confirmPassword" type="password"
+                    placeholder="Re-enter your password" />
+                <button type="button" class="toggle-password" id="toggleConfirmPassword"
+                    aria-label="Toggle confirm password visibility">
+                    <svg class="icon-eye" width="20" height="20">
+                        <use href="icons.svg#icon-eye"></use>
+                    </svg>
+                    <svg class="icon-eye-slash" width="20" height="20" style="display: none;">
+                        <use href="icons.svg#icon-eye-slash"></use>
+                    </svg>
+                </button>
+            </div>
+            <p class="error" id="confirmPasswordError"></p>
+        </div>
+
+        <button id="btn" type="submit" disabled>Create account</button>
+        <p class="formMsg" id="formMsg"></p>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span>Or continue with</span>
+        </div>
+
+        <!-- Social Login Buttons -->
+        <div class="social-section">
+            <button type="button" class="social-btn google-btn" id="googleBtn">
+                <svg width="20" height="20">
+                    <use href="icons.svg#icon-google"></use>
+                </svg>
+                <span>Google</span>
+            </button>
+            <button type="button" class="social-btn github-btn" id="githubBtn">
+                <svg width="20" height="20">
+                    <use href="icons.svg#icon-github"></use>
+                </svg>
+                <span>GitHub</span>
+            </button>
+            <button type="button" class="social-btn microsoft-btn" id="microsoftBtn">
+                <svg width="20" height="20">
+                    <use href="icons.svg#icon-microsoft"></use>
+                </svg>
+                <span>Microsoft</span>
+            </button>
+        </div>
+    </form>
+
+    <!-- OTP Verification Modal -->
+    <div class="otp-modal" id="otpModal">
+        <div class="otp-overlay" id="otpOverlay"></div>
+        <div class="otp-container">
+            <h2>Verify your email</h2>
+            <p class="otp-description">We've sent a 6-digit code to <span id="otpEmail"></span></p>
+            <p class="otp-hint">Check your console for the OTP code (simulated)</p>
+
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" class="otp-input" id="otp1" />
+                <input type="text" maxlength="1" class="otp-input" id="otp2" />
+                <input type="text" maxlength="1" class="otp-input" id="otp3" />
+                <input type="text" maxlength="1" class="otp-input" id="otp4" />
+                <input type="text" maxlength="1" class="otp-input" id="otp5" />
+                <input type="text" maxlength="1" class="otp-input" id="otp6" />
+            </div>
+
+            <p class="otp-error" id="otpError"></p>
+
+            <button class="otp-verify-btn" id="otpVerifyBtn">Verify Code</button>
+
+            <div class="otp-footer">
+                <p class="otp-timer" id="otpTimer">Resend code in <span id="timerCount">60</span>s</p>
+                <button class="otp-resend-btn" id="otpResendBtn" disabled>Resend Code</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
